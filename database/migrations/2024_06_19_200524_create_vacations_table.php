@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('schedules', function (Blueprint $table) {
+        Schema::create('vacations', function (Blueprint $table) {
             $table->id();
-            $table->dateTime('work_day_from');
-            $table->dateTime('work_day_to');
             $table->foreignId('worker_id')->nullable()->constrained('workers');
+            $table->dateTime('vacation_day_from');
+            $table->dateTime('vacation_day_to');
             $table->timestamps();
         });
     }
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('schedules');
+        Schema::dropIfExists('vacantions');
     }
 };
